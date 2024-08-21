@@ -20,7 +20,7 @@ cnx = mysql.connector.connect(user='anvil', password='catalina01',
 
 @anvil.server.callable
 def get_user_signups():
-    cur = conn.cursor()
+    cur = cnx.cursor()
     cur.execute("""
         SELECT COUNT(*), DATE_TRUNC('week', signup_date) AS d
              FROM users
